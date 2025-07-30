@@ -5,12 +5,16 @@ import CategoriesScreen from "./screens/CategoriesScreen";
 
 const Stack = createNativeStackNavigator();
 
-export default function Index() {
+export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content" />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            contentStyle: { backgroundColor: "#24180f" },
+          }}
+        >
           <Stack.Screen name="MealsCategories" component={CategoriesScreen} />
         </Stack.Navigator>
       </NavigationContainer>
