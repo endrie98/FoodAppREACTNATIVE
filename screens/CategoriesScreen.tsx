@@ -1,14 +1,16 @@
 import { CATEGORIES } from "@/data/dummy-data";
 import Category from "@/models/category";
 import { RootStackParamList } from "@/models/rootStackParamList";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { FlatList } from "react-native";
 import CategoryGridTile from "../components/CategoryGridTile";
 
-type Props = NativeStackScreenProps<RootStackParamList, "MealsCategories">;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "MealsOverview">;
 
-const CategoriesScreen = (props : Props) => {
-  const { navigation } = props;
+const CategoriesScreen = () => {
+  const navigation = useNavigation<NavigationProp>();
+
   function renterCategoryItem(item: Category) {
     function pressHandler() {
       navigation.navigate("MealsOverview", {
